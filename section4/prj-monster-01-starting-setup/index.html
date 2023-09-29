@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics - Project</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div id="game">
+      <header>
+        <h1>Monster Slayer</h1>
+      </header>
+      <section class="container" id="monster">
+        <h2>Monster Health</h2>
+        <div class="healthBar">
+          <div :style="monsterBar"
+           class="health-value"></div>
+        </div>
+      </section>
+      <section class="container" id="player">
+        <h2>Player Health</h2>
+        <div class="healthBar">
+          <div :style="playerBar" class="health-value"></div>
+        </div>
+      </section>
+      <section v-if="winner === null" id="control">
+        <button @click="attackMonster()">ATTACK</button>
+        <button :disabled="currentRound % 3 !== 0" @click="specialAttackMonster()">SPECIAL ATTACK</button>
+        <button @click="healPlayer">HEAL</button>
+        <button @click="surrender">SURRENDER</button>
+      </section>
+      <section v-if="winner" class="container">
+        <h2>Game over!</h2>
+        <h3 v-if="winner === 'monster'">You lost!</h3>
+        <h3 v-else-if="winner === 'player'">You win</h3>
+        <h3 v-else-if="winner === 'draw'">It's draw</h3>
+        <button @click="startNewGame">Start New Game</button>
+      </section>
+      <section id="log" class="container">
+        <h2>Battle log</h2>
+        <ul>
+          <li v-for="log in battleLog">
+            <span 
+            :class="{'log-player': log.playerAction === 'Player', 
+            'log-monster': log.playerAction === 'Monster'}">
+            {{ log.playerAction === 'Player' ?  'Player ' : 'Monster ' }}
+            </span>
+            <span>{{ log.actionType }}</span>
+            <span :class="{'log-attack': log.actionType === 'attacks and deals ', 
+            'log-heal': log.actionType === 'hears for himself for '}">
+            {{ log.actionValue }}</span>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>

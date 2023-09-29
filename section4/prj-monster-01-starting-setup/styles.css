@@ -1,0 +1,117 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Jost', sans-serif;
+}
+
+body {
+  
+}
+
+header {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding: 30px;
+  background-color: #880017;
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.container {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding: 0.5rem;
+  border-radius: 12px;
+  padding: 8px;
+  margin: 1rem auto;
+}
+
+section {
+  text-align: center;
+  max-width: 40rem;
+  width: 90%;
+}
+
+h2 {
+  margin: 20px 0;
+}
+
+section .healthBar {
+  width: 100%;
+  background-color: #fde5e5;
+  height: 40px;
+  border: 1px solid #575757;
+  margin: 16px 0;
+}
+
+.health-value {
+  height: 100%;
+  width: 100%;
+  background-color: #00a876;
+}
+
+#control {
+  margin: auto;
+}
+
+section button {
+  padding: 16px 32px;
+  margin: 16px;
+  width: 12rem;
+  border-radius: 12px;
+  background-color: #88005b;
+  border: 1px solid #88005b;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+section button:disabled {
+  background-color: #ccc;
+  border-color: #ccc;
+  box-shadow: none;
+  color: #3f3f3f;
+  cursor: not-allowed;
+}
+
+section button:disabled:hover {
+  background-color: #ccc;
+  border-color: #ccc;
+  box-shadow: none;
+  color: #3f3f3f;
+  cursor: not-allowed;
+}
+
+section button:hover, section button:active {
+  background-color: #af0a78;
+  border-color: #af0a78;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.26);
+}
+
+#log ul {
+  list-style-type: none;
+}
+
+#log ul > li {
+  margin: 8px 0;
+}
+
+.log-monster {
+  color: #da8d00;
+}
+
+.log-player {
+  color: #7700ff;
+}
+
+.log-heal {
+  color: green;
+}
+
+.log-attack {
+  color: red;
+}
+
