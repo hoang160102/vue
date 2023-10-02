@@ -42,6 +42,7 @@ export default {
       default: false
     }
   },
+  emits: [],
   data() {
     return {
       detailsAreVisible: false,
